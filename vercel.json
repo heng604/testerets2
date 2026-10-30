@@ -1,0 +1,14 @@
+{
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "regions": ["sin1"],
+  "functions": { "api/index.js": { "maxDuration": 30 } },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.js" },
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/((?!assets/).*)", "destination": "/admin/index.html" },
+    { "source": "/((?!api/|img/|assets/|admin/).*)", "destination": "/index.html" }
+  ]
+}
