@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import ProductLabel from './ProductLabel';
+import Icon from './Icon';
 
 export function ProductCard({ item }) {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export function ProductCard({ item }) {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '14px', borderTop: `1px solid ${colors.border}` }}>
           <div style={{ fontSize: '13px', color: '#10b981', fontWeight: '800', display: 'flex', alignItems: 'center', gap: 6 }}>
-            🪙 {(item.priceInPoints || 0).toLocaleString()}
+            <Icon name="coin" size={15} /> {(item.priceInPoints || 0).toLocaleString()}
             {item.discountPercent > 0 && (
               <span style={{ fontSize: '11px', background: 'rgba(239,68,68,0.15)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 6, padding: '2px 7px', fontWeight: 700 }}>
                 -{item.discountPercent}%

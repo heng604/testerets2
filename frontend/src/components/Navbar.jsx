@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { navLinkStyle, navTopUpButtonStyle } from '../styles/theme';
 import { fetchSettings } from '../services/api';
+import Icon from './Icon';
+import LangSwitch from './LangSwitch';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -51,7 +53,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
           borderRadius: '8px', color: XCLOUD_THEME.textMain, fontSize: '18px', cursor: 'pointer',
         }}
       >
-        {menuOpen ? '✕' : '☰'}
+        <Icon name={menuOpen ? 'x' : 'menu'} size={20} />
       </button>
 
       <div className="xc-nav-desktop-links" style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
@@ -66,26 +68,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
           </>
         )}
 
-        {/* ── Language toggle ── */}
-        <button
-          onClick={toggleLang}
-          title={lang === 'km' ? 'Switch to English' : 'ប្តូរទៅភាសាខ្មែរ'}
-          style={{
-            background: 'transparent',
-            border: `1px solid rgba(148,163,184,0.3)`,
-            color: XCLOUD_THEME.textMuted,
-            padding: '6px 12px',
-            borderRadius: '6px',
-            fontSize: '12px',
-            fontWeight: '700',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-          }}
-        >
-          🌐 {lang === 'km' ? 'ខ្មែរ' : 'EN'}
-        </button>
+        <LangSwitch />
 
         {/* ── Night / normal mode toggle ── */}
         <button
@@ -102,7 +85,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
             lineHeight: 1,
           }}
         >
-          {mode === 'dark' ? '☀️' : '🌙'}
+          <Icon name={mode === 'dark' ? 'sun' : 'moon'} size={16} />
         </button>
 
         {userRole !== 'guest' ? (
@@ -131,7 +114,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                   transition: 'all 0.15s',
                 }}
               >
-                🔔
+                <Icon name="bell" size={16} />
                 {count > 0 && (
                   <span style={{
                     position: 'absolute',

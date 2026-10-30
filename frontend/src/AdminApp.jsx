@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from 'react-router-dom';
 
+import Icon from './components/Icon';
+import LangSwitch from './components/LangSwitch';
 import { injectGlobalStyles } from './styles/theme';
 import { useTheme } from './context/ThemeContext';
 import { useLanguage } from './context/LanguageContext';
@@ -19,15 +21,16 @@ import Reports from './admin/Reports';
 injectGlobalStyles();
 
 function getNavLinks(t) {
+  const clean = (v, fb) => { const x = (v || '').replace(/^[^\p{L}\p{N}]+/u, '').trim(); return x || fb; };
   return [
-    { to: '/admin-dashboard', label: `📊 ${t('admin.dashboard').replace('📊 ', '')}` },
-    { to: '/admin-upload',    label: `📦 ${t('admin.uploadMod').replace('📦 ', '')}` },
-    { to: '/admin-products',  label: '🛒 Products' },
-    { to: '/admin-users',     label: '👥 Users' },
-    { to: '/admin-orders',    label: '📋 Orders' },
-    { to: '/admin-topups',    label: '💰 Topups' },
-    { to: '/admin-reports',   label: '🛠️ Reports' },
-    { to: '/admin-settings',  label: '⚙️ Settings' },
+    { to: '/admin-dashboard', icon: 'dashboard', label: clean(t('admin.dashboard'), 'Dashboard') },
+    { to: '/admin-upload',    icon: 'upload',    label: clean(t('admin.uploadMod'), 'Upload') },
+    { to: '/admin-products',  icon: 'box',       label: 'Products' },
+    { to: '/admin-users',     icon: 'users',     label: 'Users' },
+    { to: '/admin-orders',    icon: 'cart',      label: 'Orders' },
+    { to: '/admin-topups',    icon: 'wallet',    label: 'Topups' },
+    { to: '/admin-reports',   icon: 'tool',      label: 'Reports' },
+    { to: '/admin-settings',  icon: 'settings',  label: 'Settings' },
   ];
 }
 
@@ -62,7 +65,7 @@ function Sidebar({ userEmail, onLogout }) {
       padding: '24px 12px', gap: '4px', flexShrink: 0, position: 'sticky', top: 0, height: '100vh',
     }}>
       <div style={{ color: '#a78bfa', fontWeight: 800, fontSize: '16px', padding: '0 10px', marginBottom: '24px' }}>
-        ⚙ Masatoshi<br />
+        <span style={{ background: 'linear-gradient(135deg,#7c5cff,#22d3ee)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>✦ Masatoshi</span><br />
         <span style={{ color: colors.textMuted, fontSize: '11px', fontWeight: 400 }}>{t('admin.panel')}</span>
       </div>
 
@@ -71,7 +74,7 @@ function Sidebar({ userEmail, onLogout }) {
           key={link.to}
           to={link.to}
           style={({ isActive }) => ({
-            display: 'block', padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
+            display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderRadius: '12px', textDecoration: 'none',
             fontSize: '13px', fontWeight: 600,
             color: isActive ? colors.textMain : colors.textMuted,
             background: isActive ? 'rgba(167,139,250,0.15)' : 'transparent',
@@ -79,23 +82,13 @@ function Sidebar({ userEmail, onLogout }) {
             transition: 'all 0.15s',
           })}
         >
-          {link.label}
+          <Icon name={link.icon} size={17} /> {link.label}
         </NavLink>
       ))}
 
       {/* Theme + language toggles */}
       <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <button
-          onClick={toggleLang}
-          title={t('nav.langSwitch')}
-          style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-            width: '100%', padding: '9px', background: colors.bgInput, border: `1px solid ${colors.border}`,
-            borderRadius: '6px', color: colors.textMain, cursor: 'pointer', fontSize: '12px', fontWeight: 700,
-          }}
-        >
-          🌐 {lang === 'km' ? 'ខ្មែរ / EN' : 'EN / ខ្មែរ'}
-        </button>
+        <LangSwitch />
         <button
           onClick={toggleTheme}
           title={mode === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')}
@@ -105,7 +98,7 @@ function Sidebar({ userEmail, onLogout }) {
             borderRadius: '6px', color: colors.textMain, cursor: 'pointer', fontSize: '12px', fontWeight: 700,
           }}
         >
-          {mode === 'dark' ? '☀️' : '🌙'} {mode === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')}
+          <Icon name={mode === 'dark' ? 'sun' : 'moon'} size={15} /> {mode === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')}
         </button>
       </div>
 
@@ -117,7 +110,7 @@ function Sidebar({ userEmail, onLogout }) {
           onClick={onLogout}
           style={{ width: '100%', padding: '9px', background: 'transparent', border: `1px solid ${colors.border}`, borderRadius: '6px', color: colors.textMuted, cursor: 'pointer', fontSize: '12px', fontWeight: 600 }}
         >
-          🚪 {t('nav.logout')}
+          <Icon name="logout" size={15} /> {t('nav.logout')}
         </button>
       </div>
     </aside>

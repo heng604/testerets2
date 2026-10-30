@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchPendingDeposits, deleteProduct, verifyDeposit, fetchSettings } from '../services/api';
 import { formatDateTime } from '../utils/dateUtils';
 import BakongTester from './BakongTester';
+import Icon from '../components/Icon';
 
 const API = '';
 
@@ -234,7 +235,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
           )}
         </button>
         <button style={tabBtn(activeTab === 'products')} onClick={() => setActiveTab('products')}>Products</button>
-        <button style={tabBtn(activeTab === 'bakong')} onClick={() => setActiveTab('bakong')}>🧪 Bakong Tester</button>
+        <button style={tabBtn(activeTab === 'bakong')} onClick={() => setActiveTab('bakong')}><Icon name="flask" size={14} /> Bakong Tester</button>
       </div>
 
       {/* ══════════════════════════════ OVERVIEW ══════════════════════ */}

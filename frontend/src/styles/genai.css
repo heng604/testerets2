@@ -87,3 +87,66 @@ h1 {
 ::-webkit-scrollbar-thumb { background: rgba(124, 92, 255, 0.45); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }
 
 @media (prefers-reduced-motion: reduce) { body::before { animation: none; } * { transition: none !important; } }
+
+/* ═════════════ v2 — type, buttons, nav, details ═════════════ */
+
+/* Fonts: Inter (Latin) + Kantumruy Pro (Khmer) — the browser picks per glyph, so EN/ខ្មែរ both look modern */
+body, input, select, textarea, button, [style*="font-family"] {
+  font-family: 'Inter', 'Kantumruy Pro', 'Hanuman', system-ui, sans-serif !important;
+}
+h1, h2, h3, .ai-display { font-family: 'Sora', 'Kantumruy Pro', 'Hanuman', 'Inter', sans-serif !important; letter-spacing: -0.035em; }
+:lang(km) body, html[lang="km"] body { letter-spacing: 0; line-height: 1.65; }
+html[lang="km"] h1, html[lang="km"] h2, html[lang="km"] h3 { letter-spacing: 0; line-height: 1.35; }
+
+.ai-grad {
+  background: linear-gradient(100deg, #a78bfa 0%, #7c5cff 35%, #22d3ee 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* Buttons: soft pills, consistent hover */
+button, a[style*="border-radius"] { border-radius: 14px; }
+button[style*="padding"], a.xc-btn { border-radius: 999px !important; }
+button[style*="border-radius: 50%"], button[style*="width: 40px"] { border-radius: 50% !important; }
+button { transition: transform .15s ease, background .2s, border-color .2s, box-shadow .2s, color .2s; }
+button:not([disabled]):hover { transform: translateY(-1px); }
+button[disabled] { cursor: not-allowed; filter: saturate(0.6); }
+.xc-btn { transition: transform .15s ease, box-shadow .2s ease, filter .2s !important; }
+.xc-btn:hover { transform: translateY(-2px) !important; filter: brightness(1.12); }
+:focus-visible { outline: 2px solid rgba(124, 92, 255, 0.9); outline-offset: 2px; border-radius: 10px; }
+
+/* Top navigation: floating glass bar */
+nav, header { -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); }
+nav[style], header[style] {
+  background: rgba(9, 7, 18, 0.62) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  position: sticky; top: 0; z-index: 50;
+}
+nav a, header a { transition: color .2s; }
+nav a:hover { color: #fff !important; }
+
+/* Admin sidebar links */
+aside a { border-radius: 12px !important; }
+aside a:hover { background: rgba(255, 255, 255, 0.05) !important; color: #fff !important; }
+aside a[aria-current="page"] {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.28), rgba(34, 211, 238, 0.12)) !important;
+  border-left-color: #7c5cff !important; box-shadow: inset 0 0 0 1px rgba(124, 92, 255, 0.35);
+}
+
+/* Tables */
+table { border-collapse: separate; border-spacing: 0; }
+th { font-size: 11px !important; text-transform: uppercase; letter-spacing: 0.08em; color: #8f8bb3 !important; font-weight: 600 !important; }
+tbody tr { transition: background .15s; }
+tbody tr:hover { background: rgba(124, 92, 255, 0.07); }
+
+/* Product card details */
+.xc-card-img-wrap { border-radius: 16px 16px 0 0; }
+.xc-card-img-wrap::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(to top, rgba(7, 6, 13, 0.75), transparent); pointer-events: none; }
+.xc-card-img-wrap > div { z-index: 2; }
+
+/* Hero spotlight */
+h1 { font-weight: 800 !important; line-height: 1.08; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.ai-float { animation: floaty 6s ease-in-out infinite; }
+
+/* Modals / popups get the same glass */
+[style*="position: fixed"][style*="rgba(0, 0, 0"] { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }

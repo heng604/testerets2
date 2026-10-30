@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Icon from '../components/Icon';
 
 // Admin tool: "Does Bakong actually work on this server?"
 //  1) Run diagnostics  → config, token expiry, can this server reach NBC?
 //  2) Create test QR   → pay a tiny amount, see if verification detects it (no points are credited)
 
 const C = { card: '#100d1c', border: '#241f3a', text: '#f5efe6', muted: '#a39a8e', accent: '#a78bfa', ok: '#34d399', warn: '#fbbf24', bad: '#f87171' };
-const ICON = { pass: '✅', warn: '⚠️', fail: '❌', skip: '⏭️' };
+const ICON = { pass: 'circleCheck', warn: 'alert', fail: 'cross', skip: 'skip' };
 const COLOR = { pass: C.ok, warn: C.warn, fail: C.bad, skip: C.muted };
 
 const card = { background: C.card, border: `1px solid ${C.border}`, borderRadius: 16, padding: 22 };
@@ -115,7 +116,7 @@ export default function BakongTester() {
             {diagLoading ? 'Checking…' : diag ? 'Run again' : 'Run diagnostics'}
           </button>
         </div>
-        {diagErr && <div style={{ marginTop: 14, color: C.bad, fontSize: 13 }}>❌ {diagErr}</div>}
+        {diagErr && <div style={{ marginTop: 14, color: C.bad, fontSize: 13 }}>{diagErr}</div>}
         {diag && (
           <div style={{ marginTop: 16 }}>
             <div style={{ padding: '10px 14px', borderRadius: 10, border: `1px solid ${overallColor}55`, background: `${overallColor}14`, color: overallColor, fontWeight: 700, fontSize: 14 }}>
@@ -126,7 +127,7 @@ export default function BakongTester() {
             <div style={{ display: 'grid', gap: 8, marginTop: 12 }}>
               {diag.checks.map(c => (
                 <div key={c.id} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 12px', background: '#0a0814', border: `1px solid ${C.border}`, borderRadius: 10 }}>
-                  <span style={{ fontSize: 16 }}>{ICON[c.status]}</span>
+                  <span style={{ color: COLOR[c.status], display: 'flex', paddingTop: 1 }}><Icon name={ICON[c.status]} size={18} /></span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontWeight: 700, fontSize: 13.5, color: COLOR[c.status] }}>{c.label}</div>
                     <div style={{ color: C.muted, fontSize: 12.5, marginTop: 2, wordBreak: 'break-word' }}>{c.detail}</div>
@@ -156,13 +157,13 @@ export default function BakongTester() {
           <input type="number" min="0" step={currency === 'USD' ? '0.01' : '100'} value={amount} onChange={e => setAmount(e.target.value)} style={{ ...input, width: 120 }} />
           <button style={btn(true, qrLoading)} disabled={qrLoading} onClick={createQr}>{qrLoading ? 'Creating…' : 'Create test QR'}</button>
         </div>
-        {qrErr && <div style={{ marginTop: 12, color: C.bad, fontSize: 13 }}>❌ {qrErr}</div>}
+        {qrErr && <div style={{ marginTop: 12, color: C.bad, fontSize: 13 }}>{qrErr}</div>}
 
         {qr && (
           <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap', marginTop: 18, alignItems: 'flex-start' }}>
             <div style={{ background: '#fff', padding: 10, borderRadius: 14, position: 'relative' }}>
               <img src={qr.qrImage} alt="Test KHQR" width={220} height={220} style={{ display: 'block', opacity: paid || secondsLeft === 0 ? 0.25 : 1 }} />
-              {paid && <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 64 }}>✅</div>}
+              {paid && <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#34d399' }}><Icon name="circleCheck" size={84} stroke={1.5} /></div>}
             </div>
             <div style={{ flex: 1, minWidth: 220 }}>
               <div style={{ fontSize: 24, fontWeight: 800 }}>{qr.currency === 'USD' ? '$' : '៛'}{Number(qr.amount).toLocaleString()}</div>
@@ -176,7 +177,7 @@ export default function BakongTester() {
                   background: `${paid ? C.ok : result.status === 'error' ? C.bad : C.muted}14`,
                   color: paid ? C.ok : result.status === 'error' ? C.bad : C.text,
                 }}>
-                  <b>{paid ? 'Bakong works ✅' : result.status === 'error' ? 'Verification problem' : result.status === 'expired' ? 'Expired' : 'Waiting for payment…'}</b>
+                  <b>{paid ? 'Bakong works' : result.status === 'error' ? 'Verification problem' : result.status === 'expired' ? 'Expired' : 'Waiting for payment…'}</b>
                   <div style={{ color: paid ? C.ok : C.muted, marginTop: 2 }}>{result.message}</div>
                   {result.latencyMs ? <div style={{ color: C.muted, fontSize: 11.5, marginTop: 4 }}>NBC reply in {result.latencyMs} ms{result.httpStatus ? ` · HTTP ${result.httpStatus}` : ''}</div> : null}
                 </div>
