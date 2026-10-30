@@ -154,7 +154,7 @@ export default function Upload({ products, setProducts }) {
             onDragOver={e => { e.preventDefault(); setIsDragOver(true); }}
             onDragLeave={() => setIsDragOver(false)}
             onDrop={handleDrop}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '28px 24px', borderRadius: '10px', border: `2px dashed ${isDragOver ? '#fbbf24' : '#d97706'}`, background: isDragOver ? 'rgba(217,119,6,0.12)' : 'rgba(217,119,6,0.04)', cursor: 'pointer', marginBottom: '12px', transition: 'all 0.15s' }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '28px 24px', borderRadius: '10px', border: `2px dashed ${isDragOver ? '#fbbf24' : '#7c5cff'}`, background: isDragOver ? 'rgba(124,92,255,0.12)' : 'rgba(124,92,255,0.04)', cursor: 'pointer', marginBottom: '12px', transition: 'all 0.15s' }}
           >
             <span style={{ fontSize: '32px' }}>☁️</span>
             <span style={{ color: '#fbbf24', fontWeight: '700', fontSize: '13px' }}>ចុចដើម្បីជ្រើសរើស ឬទាញ &amp; លាក់រូបភាព</span>
@@ -166,7 +166,7 @@ export default function Upload({ products, setProducts }) {
               {images.map((img, index) => (
                 <div key={index} style={{ position: 'relative' }}>
                   <img src={img.preview} alt={`preview-${index}`} style={{ width: '80px', height: '66px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #2a2a38', display: 'block' }} />
-                  <button type="button" onClick={() => handleRemoveImage(index)} style={{ position: 'absolute', top: '-6px', right: '-6px', width: '20px', height: '20px', borderRadius: '50%', background: '#14110f', border: '1px solid #3b1820', color: '#ef4444', fontSize: '10px', fontWeight: '900', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}>✕</button>
+                  <button type="button" onClick={() => handleRemoveImage(index)} style={{ position: 'absolute', top: '-6px', right: '-6px', width: '20px', height: '20px', borderRadius: '50%', background: '#100d1c', border: '1px solid #3b1820', color: '#ef4444', fontSize: '10px', fontWeight: '900', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}>✕</button>
                   {index === 0 && <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'rgba(0,0,0,0.65)', fontSize: '9px', color: '#fbbf24', textAlign: 'center', borderRadius: '0 0 8px 8px', padding: '2px 0' }}>គម្រប</div>}
                 </div>
               ))}
@@ -199,12 +199,12 @@ export default function Upload({ products, setProducts }) {
         </div>
 
         {(title || price) && (
-          <div style={{ background: 'rgba(217,119,6,0.07)', border: '1px solid rgba(217,119,6,0.2)', borderRadius: '10px', padding: '14px 16px', fontSize: '13px', color: '#94a3b8' }}>
+          <div style={{ background: 'rgba(124,92,255,0.07)', border: '1px solid rgba(124,92,255,0.2)', borderRadius: '10px', padding: '14px 16px', fontSize: '13px', color: '#94a3b8' }}>
             <div style={{ fontWeight: 700, color: '#fbbf24', marginBottom: 6 }}>👁 មើលមុន</div>
             <div><span style={{ color: '#fff', fontWeight: 600 }}>{title || '—'}</span></div>
             <div style={{ marginTop: 4, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               {price && <span style={{ color: '#10b981' }}>💰 {parseInt(price).toLocaleString()} ពិន្ទុ{discountPercent ? ` (បញ្ចុះ ${discountPercent}%)` : ''}</span>}
-              {discountCode && <span style={{ color: '#f59e0b' }}>🏷️ {discountCode.toUpperCase()}</span>}
+              {discountCode && <span style={{ color: '#a78bfa' }}>🏷️ {discountCode.toUpperCase()}</span>}
               {version && <span style={{ color: '#fbbf24' }}>🔖 v{version.replace(/^v/i, '')}</span>}
               <span style={{ color: '#475569' }}>🖼️ {images.length} រូបភាព</span>
             </div>

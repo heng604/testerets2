@@ -107,9 +107,9 @@ export default function Report({ userEmail, username }) {
           ].map(tb => (
             <button key={tb.key} onClick={() => setTab(tb.key)} style={{
               padding: '9px 18px', borderRadius: '8px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', border: 'none',
-              background: tab === tb.key ? '#d97706' : XCLOUD_THEME.bgCard,
+              background: tab === tb.key ? '#7c5cff' : XCLOUD_THEME.bgCard,
               color:      tab === tb.key ? '#fff'    : XCLOUD_THEME.textMuted,
-              outline: tab === tb.key ? '1px solid #f59e0b' : `1px solid ${XCLOUD_THEME.border}`,
+              outline: tab === tb.key ? '1px solid #a78bfa' : `1px solid ${XCLOUD_THEME.border}`,
             }}>
               {tb.label}
             </button>
@@ -166,7 +166,7 @@ export default function Report({ userEmail, username }) {
                 onClick={handleSubmit}
                 disabled={sending}
                 style={{
-                  padding: '13px', background: sending ? '#374151' : '#d97706', border: 'none',
+                  padding: '13px', background: sending ? '#374151' : '#7c5cff', border: 'none',
                   borderRadius: '8px', color: '#fff', fontWeight: '800', fontSize: '15px',
                   cursor: sending ? 'not-allowed' : 'pointer', width: '100%',
                 }}
@@ -211,8 +211,8 @@ export default function Report({ userEmail, username }) {
                     </div>
                     <p style={{ color: XCLOUD_THEME.textMuted, fontSize: '13px', margin: '0 0 8px', lineHeight: '1.6' }}>{r.message}</p>
                     {r.adminNote && (
-                      <div style={{ background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.2)', borderRadius: '8px', padding: '10px 14px', marginTop: '8px' }}>
-                        <span style={{ fontSize: '11px', color: '#f59e0b', fontWeight: '700' }}>{t('report.adminNote')}</span>
+                      <div style={{ background: 'rgba(124,92,255,0.08)', border: '1px solid rgba(124,92,255,0.2)', borderRadius: '8px', padding: '10px 14px', marginTop: '8px' }}>
+                        <span style={{ fontSize: '11px', color: '#a78bfa', fontWeight: '700' }}>{t('report.adminNote')}</span>
                         <span style={{ fontSize: '13px', color: '#fbbf24' }}>{r.adminNote}</span>
                       </div>
                     )}

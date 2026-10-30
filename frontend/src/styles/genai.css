@@ -1,0 +1,89 @@
+/* ═════════════ "Gen-AI 2026" skin ═════════════
+   Aurora background · glass cards · gradient accents.
+   Works on top of the existing inline-styled components by matching their
+   theme colours (browsers serialise #100d1c → rgb(16, 13, 28), etc.). */
+
+:root {
+  --ai-violet: #7c5cff;
+  --ai-cyan: #22d3ee;
+  --ai-pink: #f472b6;
+  --ai-gold: #fbbf24;
+  --ai-glass: rgba(22, 18, 40, 0.55);
+  --ai-stroke: rgba(255, 255, 255, 0.09);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', 'Hanuman', 'Khmer', system-ui, sans-serif !important; letter-spacing: -0.01em; }
+::selection { background: rgba(124, 92, 255, 0.45); color: #fff; }
+
+/* aurora */
+body::before {
+  content: ''; position: fixed; inset: -20% -10% auto -10%; height: 140vh; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(40% 35% at 12% 8%, rgba(124, 92, 255, 0.38), transparent 70%),
+    radial-gradient(35% 30% at 88% 4%, rgba(34, 211, 238, 0.22), transparent 70%),
+    radial-gradient(40% 35% at 60% 55%, rgba(244, 114, 182, 0.14), transparent 70%);
+  filter: blur(30px); animation: aurora 22s ease-in-out infinite alternate;
+}
+body::after { /* faint grain / grid */
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.5;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 80%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 80%);
+}
+@keyframes aurora { from { transform: translate3d(-2%, 0, 0) scale(1); } to { transform: translate3d(3%, 4%, 0) scale(1.08); } }
+
+/* page backgrounds become transparent so the aurora shows through */
+[style*="rgb(7, 6, 13)"] { background: transparent !important; }
+
+/* glass cards */
+[style*="rgb(16, 13, 28)"] {
+  background: var(--ai-glass) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%);
+  border-color: var(--ai-stroke) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 14px 44px rgba(0,0,0,0.38) !important;
+}
+[style*="rgb(11, 9, 19)"] { /* sidebars / navbars */
+  background: rgba(10, 8, 20, 0.6) !important;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  border-color: var(--ai-stroke) !important;
+}
+
+/* inputs */
+input, select, textarea { transition: border-color .2s, box-shadow .2s, background .2s; }
+[style*="rgb(10, 8, 20)"] { background: rgba(255, 255, 255, 0.045) !important; border-color: var(--ai-stroke) !important; color: #fff; }
+input:focus, select:focus, textarea:focus { outline: none !important; border-color: rgba(124, 92, 255, 0.8) !important; box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.22) !important; }
+
+/* gradient primary buttons */
+button[style*="rgb(124, 92, 255)"], a[style*="rgb(124, 92, 255)"] {
+  background: linear-gradient(135deg, #7c5cff 0%, #5b8cff 55%, #22d3ee 120%) !important;
+  border-color: transparent !important; color: #fff !important;
+  box-shadow: 0 8px 28px rgba(124, 92, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s;
+}
+button[style*="rgb(124, 92, 255)"]:hover, a[style*="rgb(124, 92, 255)"]:hover { transform: translateY(-1px); filter: brightness(1.08); box-shadow: 0 12px 34px rgba(124, 92, 255, 0.6), inset 0 1px 0 rgba(255,255,255,0.3); }
+button:active { transform: scale(0.98); }
+
+/* headings */
+h1, h2 { font-family: 'Space Grotesk', 'Inter', 'Hanuman', sans-serif !important; letter-spacing: -0.03em; }
+h1 {
+  background: linear-gradient(100deg, #ffffff 10%, #c4b5fd 45%, #67e8f9 90%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent !important;
+}
+
+/* storefront product cards */
+.xc-card { border-radius: 20px !important; position: relative; }
+.xc-card:hover { box-shadow: 0 30px 80px rgba(124, 92, 255, 0.35), 0 0 0 1px rgba(124, 92, 255, 0.5) !important; border-color: rgba(124, 92, 255, 0.6) !important; }
+.xc-card::after { /* soft gradient rim on hover */
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: linear-gradient(135deg, rgba(124,92,255,0.18), transparent 40%, rgba(34,211,238,0.14));
+}
+.xc-card:hover::after { opacity: 1; }
+
+/* scrollbars */
+* { scrollbar-width: thin; scrollbar-color: rgba(124, 92, 255, 0.5) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(124, 92, 255, 0.45); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }
+
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } * { transition: none !important; } }

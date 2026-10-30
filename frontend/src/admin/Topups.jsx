@@ -162,7 +162,7 @@ export default function Topups({ pendingDeposits, setPendingDeposits, setTransac
                   {dep.amount?.toLocaleString()} ៛ → {toPoints(dep.amount)} ពិន្ទុ
                 </td>
                 <td style={{ padding: '16px 20px', textAlign: 'right' }}>
-                  <button onClick={() => setSelectedSlipUrl(dep.slipUrl)} style={{ background: '#2a1a05', border: '1px solid #312e81', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', marginRight: '8px', cursor: 'pointer', fontWeight: '600' }}>🖼️ Slip</button>
+                  <button onClick={() => setSelectedSlipUrl(dep.slipUrl)} style={{ background: '#1c1540', border: '1px solid #312e81', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', marginRight: '8px', cursor: 'pointer', fontWeight: '600' }}>🖼️ Slip</button>
                   <button onClick={() => handleVerify(dep.id, 'approve')} style={{ background: XCLOUD_THEME.accentGreen, color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '4px', marginRight: '8px', cursor: 'pointer', fontWeight: '600' }}>អនុម័ត</button>
                   <button onClick={() => handleVerify(dep.id, 'reject')} style={{ background: XCLOUD_THEME.accentDanger, color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontWeight: '600' }}>បដិសេធ</button>
                 </td>
@@ -178,12 +178,12 @@ export default function Topups({ pendingDeposits, setPendingDeposits, setTransac
       {/* Slip Modal */}
       {selectedSlipUrl && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(4,4,6,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-          <div style={{ background: '#14110f', border: '1px solid #2a2420', borderRadius: '16px', padding: '24px', maxWidth: '420px', width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ background: '#100d1c', border: '1px solid #241f3a', borderRadius: '16px', padding: '24px', maxWidth: '420px', width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <h3 style={{ margin: 0, fontSize: '15px', color: '#fff', fontWeight: '700' }}>ពិនិត្យភស្តុតាងផ្ទេរប្រាក់</h3>
               <button onClick={() => setSelectedSlipUrl(null)} style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
             </div>
-            <img src={selectedSlipUrl} alt="slip" style={{ width: '100%', borderRadius: '8px', border: '1px solid #2a2420' }} />
+            <img src={selectedSlipUrl} alt="slip" style={{ width: '100%', borderRadius: '8px', border: '1px solid #241f3a' }} />
           </div>
         </div>
       )}

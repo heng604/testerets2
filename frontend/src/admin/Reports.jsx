@@ -83,7 +83,7 @@ function ReportModal({ report, onClose, onUpdate }) {
       <div onClick={onClose} style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.78)', zIndex:1000, backdropFilter:'blur(3px)' }} />
       <div style={{
         position:'fixed', top:'50%', left:'50%', transform:'translate(-50%,-50%)',
-        zIndex:1001, background:'#14110f', border:`1px solid ${XCLOUD_THEME.border}`,
+        zIndex:1001, background:'#100d1c', border:`1px solid ${XCLOUD_THEME.border}`,
         borderRadius:'16px', padding:'28px 32px', width:'100%', maxWidth:'560px',
         boxShadow:'0 24px 60px rgba(0,0,0,0.85)', maxHeight:'88vh', overflowY:'auto',
       }}>
@@ -93,7 +93,7 @@ function ReportModal({ report, onClose, onUpdate }) {
         </div>
 
         {/* Info */}
-        <div style={{ background:'#0c0a09', borderRadius:'10px', padding:'14px 16px', marginBottom:'16px', border:'1px solid #1e293b' }}>
+        <div style={{ background:'#0a0814', borderRadius:'10px', padding:'14px 16px', marginBottom:'16px', border:'1px solid #1e293b' }}>
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'8px' }}>
             <span style={{ color:'#94a3b8', fontSize:'12px' }}>{report.userEmail}</span>
             <span style={{ background:sc.bg, border:`1px solid ${sc.border}`, color:sc.text, borderRadius:'20px', padding:'3px 10px', fontSize:'11px', fontWeight:'700' }}>
@@ -132,7 +132,7 @@ function ReportModal({ report, onClose, onUpdate }) {
             <button onClick={onClose} style={{ flex:1, padding:'11px', background:'transparent', border:`1px solid ${XCLOUD_THEME.border}`, borderRadius:'8px', color:'#64748b', fontWeight:'700', fontSize:'13px', cursor:'pointer' }}>
               Cancel
             </button>
-            <button onClick={handleSave} disabled={saving} style={{ flex:2, padding:'11px', background: saving ? '#374151' : '#d97706', border:'none', borderRadius:'8px', color:'#fff', fontWeight:'700', fontSize:'13px', cursor: saving ? 'not-allowed' : 'pointer' }}>
+            <button onClick={handleSave} disabled={saving} style={{ flex:2, padding:'11px', background: saving ? '#374151' : '#7c5cff', border:'none', borderRadius:'8px', color:'#fff', fontWeight:'700', fontSize:'13px', cursor: saving ? 'not-allowed' : 'pointer' }}>
               {saving ? '⏳ Saving...' : '💾 Update Report'}
             </button>
           </div>
@@ -227,7 +227,7 @@ function ExportPanel() {
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '10px' }}>
         {sections.map(s => (
-          <div key={s.type} style={{ background: '#0c0a09', borderRadius: '10px', border: `1px solid ${XCLOUD_THEME.border}`, padding: '14px 16px' }}>
+          <div key={s.type} style={{ background: '#0a0814', borderRadius: '10px', border: `1px solid ${XCLOUD_THEME.border}`, padding: '14px 16px' }}>
             <div style={{ color: '#94a3b8', fontSize: '13px', fontWeight: '700', marginBottom: '10px' }}>{s.label}</div>
             <div style={{ display: 'flex', gap: '6px' }}>
               <button onClick={() => fetchAndExport(s.type, 'excel')} disabled={loading} style={btnStyle('green')}>📊 Excel</button>
@@ -294,7 +294,7 @@ export default function Reports() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="🔍 Search email / subject..."
-            style={{ padding: '8px 13px', background: '#0c0a09', border: `1px solid ${XCLOUD_THEME.border}`, borderRadius: '8px', color: '#e6edf3', fontSize: '13px', outline: 'none', width: '220px' }}
+            style={{ padding: '8px 13px', background: '#0a0814', border: `1px solid ${XCLOUD_THEME.border}`, borderRadius: '8px', color: '#e6edf3', fontSize: '13px', outline: 'none', width: '220px' }}
           />
           <button onClick={load} style={{ padding: '8px 14px', background: '#1e293b', border: '1px solid #334155', borderRadius: '8px', color: '#94a3b8', fontSize: '13px', cursor: 'pointer', fontWeight: '600' }}>
             🔄
@@ -306,7 +306,7 @@ export default function Reports() {
       <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {['all', 'open', 'in-review', 'resolved', 'closed'].map(s => {
           const active = filterStatus === s;
-          const sc = STATUS_COLORS[s] || { text: '#94a3b8', border: XCLOUD_THEME.border, bg: '#14110f' };
+          const sc = STATUS_COLORS[s] || { text: '#94a3b8', border: XCLOUD_THEME.border, bg: '#100d1c' };
           return (
             <button key={s} onClick={() => setFilter(s)} style={{
               padding: '6px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', border: 'none',
@@ -324,7 +324,7 @@ export default function Reports() {
       <div style={{ background: XCLOUD_THEME.bgCard, borderRadius: '12px', border: `1px solid ${XCLOUD_THEME.border}`, overflow: 'hidden' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
           <thead>
-            <tr style={{ background: '#0c0a09', borderBottom: `1px solid ${XCLOUD_THEME.border}` }}>
+            <tr style={{ background: '#0a0814', borderBottom: `1px solid ${XCLOUD_THEME.border}` }}>
               <th style={{ padding: '13px 18px', color: '#64748b', textAlign: 'left' }}>User</th>
               <th style={{ padding: '13px 18px', color: '#64748b', textAlign: 'left' }}>Category</th>
               <th style={{ padding: '13px 18px', color: '#64748b', textAlign: 'left' }}>Subject</th>
@@ -345,7 +345,7 @@ export default function Reports() {
                   <td style={{ padding: '13px 18px', color: '#94a3b8' }}>{CAT_LABELS[r.category] || r.category}</td>
                   <td style={{ padding: '13px 18px', color: '#e2e8f0', maxWidth: '240px' }}>
                     <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.subject}</div>
-                    {r.adminNote && <div style={{ fontSize: '11px', color: '#f59e0b', marginTop: '2px' }}>💬 Note set</div>}
+                    {r.adminNote && <div style={{ fontSize: '11px', color: '#a78bfa', marginTop: '2px' }}>💬 Note set</div>}
                   </td>
                   <td style={{ padding: '13px 18px' }}>
                     <span style={{ background: sc.bg, border: `1px solid ${sc.border}`, color: sc.text, borderRadius: '20px', padding: '3px 10px', fontSize: '11px', fontWeight: '700' }}>
@@ -358,7 +358,7 @@ export default function Reports() {
                   <td style={{ padding: '13px 18px', textAlign: 'right' }}>
                     <button
                       onClick={() => setSelected(r)}
-                      style={{ background: 'rgba(217,119,6,0.15)', border: '1px solid rgba(217,119,6,0.3)', color: '#fbbf24', padding: '6px 13px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}
+                      style={{ background: 'rgba(124,92,255,0.15)', border: '1px solid rgba(124,92,255,0.3)', color: '#fbbf24', padding: '6px 13px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}
                     >
                       ✏️ Manage
                     </button>

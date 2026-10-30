@@ -12,7 +12,7 @@ export default function Sidebar({ title = 'Navigation', links = [], children }) 
           key={link.to}
           to={link.to}
           style={{ color: '#94a3b8', textDecoration: 'none', fontSize: 13, fontWeight: 600, padding: '10px 14px', borderRadius: 8, display: 'block' }}
-          onMouseEnter={e => e.currentTarget.style.background = 'rgba(217,119,6,0.1)'}
+          onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,92,255,0.1)'}
           onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
         >
           {link.label}

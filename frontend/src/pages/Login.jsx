@@ -194,7 +194,7 @@ export default function Login({ setUserRole, setUserEmail }) {
         return;
       }
       const client = window.google.accounts.oauth2.initTokenClient({
-        client_id: window.__GOOGLE_CLIENT_ID__ || '482813159929-ma2c4blrvtb1oo8a7rdv0jo9v9cqp9o3.apps.googleusercontent.com',
+        client_id: window.__GOOGLE_CLIENT_ID__ || '482813159929-3sdju4pmhgfm4a1r4nm8h9euv1auii3v.apps.googleusercontent.com',
         scope: 'email profile openid',
         callback: async (tokenResponse) => {
           if (tokenResponse.error) {
@@ -269,7 +269,7 @@ export default function Login({ setUserRole, setUserEmail }) {
 
         {/* Attempt warning */}
         {!isLocked && attempts > 0 && (
-          <div style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '8px', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.25)', borderRadius: '8px', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '14px' }}>⚠️</span>
             <span style={{ color: '#fbbf24', fontSize: '12px', fontWeight: '600' }}>
               {t('login.attemptsLeft', { a: attempts, b: attemptsLeft })}
@@ -299,7 +299,7 @@ export default function Login({ setUserRole, setUserEmail }) {
         <button
           onClick={handleLogin}
           disabled={loading || isLocked}
-          style={{ width: '100%', padding: '12px', background: isLocked ? '#1e293b' : loading ? '#374151' : '#d97706', color: isLocked ? '#475569' : '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loading || isLocked ? 'not-allowed' : 'pointer' }}
+          style={{ width: '100%', padding: '12px', background: isLocked ? '#1e293b' : loading ? '#374151' : '#7c5cff', color: isLocked ? '#475569' : '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loading || isLocked ? 'not-allowed' : 'pointer' }}
         >
           {isLocked ? `🔒 ${t('login.locked.button')} ${fmt(secondsLeft)}` : loading ? t('login.loggingIn') : t('login.loginButton')}
         </button>
@@ -307,7 +307,7 @@ export default function Login({ setUserRole, setUserEmail }) {
         <button
           onClick={handleGoogleLogin}
           disabled={loading || isLocked}
-          style={{ width: '100%', padding: '12px', background: '#2a2420', color: isLocked ? '#475569' : '#fff', border: '1px solid #2d2d44', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loading || isLocked ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: isLocked ? 0.4 : 1 }}
+          style={{ width: '100%', padding: '12px', background: '#241f3a', color: isLocked ? '#475569' : '#fff', border: '1px solid #2d2d44', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loading || isLocked ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: isLocked ? 0.4 : 1 }}
         >
           <span style={{ fontSize: '16px' }}>G</span> {t('login.googleLogin')}
         </button>

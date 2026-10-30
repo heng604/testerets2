@@ -35,7 +35,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
   return (
     <nav style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px clamp(16px, 6vw, 80px)', background: XCLOUD_THEME.bgDark, borderBottom: `1px solid ${XCLOUD_THEME.border}`, transition: 'background-color 0.2s ease, border-color 0.2s ease' }}>
       <Link to="/" style={{ color: XCLOUD_THEME.textMain, fontWeight: '800', textDecoration: 'none', fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ background: '#d97706', color: '#fff', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>MS</span>
+        <span style={{ background: '#7c5cff', color: '#fff', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>MS</span>
         <span style={{ fontSize: '15px', color: XCLOUD_THEME.textMain, fontWeight: '600' }}>{settings.siteName}</span>
       </Link>
 
@@ -46,8 +46,8 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
         aria-label="Menu"
         style={{
           alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px',
-          background: menuOpen ? 'rgba(217,119,6,0.15)' : 'transparent',
-          border: `1px solid ${menuOpen ? '#d97706' : 'rgba(148,163,184,0.3)'}`,
+          background: menuOpen ? 'rgba(124,92,255,0.15)' : 'transparent',
+          border: `1px solid ${menuOpen ? '#7c5cff' : 'rgba(148,163,184,0.3)'}`,
           borderRadius: '8px', color: XCLOUD_THEME.textMain, fontSize: '18px', cursor: 'pointer',
         }}
       >
@@ -120,8 +120,8 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                 title={count > 0 ? `${count} ${t('nav.notifications.tooltipCount')}` : t('nav.notifications.tooltipEmpty')}
                 style={{
                   position: 'relative',
-                  background: bellOpen ? 'rgba(217,119,6,0.15)' : 'transparent',
-                  border: `1px solid ${bellOpen ? '#d97706' : 'rgba(148,163,184,0.25)'}`,
+                  background: bellOpen ? 'rgba(124,92,255,0.15)' : 'transparent',
+                  border: `1px solid ${bellOpen ? '#7c5cff' : 'rgba(148,163,184,0.25)'}`,
                   color: count > 0 ? '#fbbf24' : '#94a3b8',
                   padding: '6px 10px',
                   borderRadius: '6px',
@@ -149,7 +149,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                     justifyContent: 'center',
                     lineHeight: 1,
                     padding: '0 3px',
-                    border: '2px solid #0c0b0a',
+                    border: '2px solid #07060d',
                   }}>
                     {count > 9 ? '9+' : count}
                   </span>
@@ -202,7 +202,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                             background: 'transparent',
                             transition: 'background 0.1s',
                           }}
-                          onMouseEnter={e => e.currentTarget.style.background = 'rgba(217,119,6,0.08)'}
+                          onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,92,255,0.08)'}
                           onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                         >
                           <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(251,191,36,0.1)', border: '1px solid rgba(251,191,36,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', flexShrink: 0 }}>
@@ -216,7 +216,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                               {t('nav.notifications.updated')}
                             </div>
                           </div>
-                          <span style={{ color: '#d97706', fontSize: '14px' }}>›</span>
+                          <span style={{ color: '#7c5cff', fontSize: '14px' }}>›</span>
                         </Link>
                       ))}
                     </div>
@@ -227,7 +227,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
                     <Link
                       to="/profile"
                       onClick={() => setBellOpen(false)}
-                      style={{ fontSize: '12px', color: '#d97706', textDecoration: 'none', fontWeight: '600' }}
+                      style={{ fontSize: '12px', color: '#7c5cff', textDecoration: 'none', fontWeight: '600' }}
                     >
                       {t('nav.notifications.viewAll')}
                     </Link>
@@ -241,7 +241,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
             <button onClick={handleLogout} style={{ background: XCLOUD_THEME.accentDanger, color: '#fff', padding: '6px 14px', borderRadius: '6px', border: 'none', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}>{t('nav.logout')}</button>
           </div>
         ) : (
-          <button onClick={() => navigate('/login')} style={{ background: '#d97706', color: '#fff', padding: '8px 20px', borderRadius: '20px', border: 'none', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
+          <button onClick={() => navigate('/login')} style={{ background: '#7c5cff', color: '#fff', padding: '8px 20px', borderRadius: '20px', border: 'none', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
             {t('nav.login')}
           </button>
         )}
@@ -290,7 +290,7 @@ export default function Navbar({ userPoints, handleLogout, isAdmin, userRole, us
             <button onClick={() => { handleLogout(); setMenuOpen(false); }} style={{ width: '100%', background: XCLOUD_THEME.accentDanger, color: '#fff', padding: '11px', borderRadius: '6px', border: 'none', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}>{t('nav.logout')}</button>
           </>
         ) : (
-          <button onClick={() => { navigate('/login'); setMenuOpen(false); }} style={{ background: '#d97706', color: '#fff', padding: '11px', borderRadius: '10px', border: 'none', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
+          <button onClick={() => { navigate('/login'); setMenuOpen(false); }} style={{ background: '#7c5cff', color: '#fff', padding: '11px', borderRadius: '10px', border: 'none', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
             {t('nav.login')}
           </button>
         )}

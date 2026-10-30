@@ -102,7 +102,7 @@ export default function Profile({ userEmail, userPoints, setUserPoints, purchase
               <div
                 onClick={() => !avatarUploading && avatarInputRef.current && avatarInputRef.current.click()}
                 title={t('profile.changePhoto')}
-                style={{ width: 80, height: 80, borderRadius: '50%', overflow: 'hidden', border: '2px solid #d97706', cursor: 'pointer', background: 'linear-gradient(135deg,#1a3a5c,#2d6a9f)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, position: 'relative' }}
+                style={{ width: 80, height: 80, borderRadius: '50%', overflow: 'hidden', border: '2px solid #7c5cff', cursor: 'pointer', background: 'linear-gradient(135deg,#1a3a5c,#2d6a9f)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, position: 'relative' }}
               >
                 {avatarSrc ? <img src={avatarSrc} alt="avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <span>🧑</span>}
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28px', background: 'rgba(0,0,0,0.55)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13 }}>📷</div>
@@ -139,7 +139,7 @@ export default function Profile({ userEmail, userPoints, setUserPoints, purchase
         <div style={{ display: 'flex', gap: 8, marginBottom: 24, flexWrap: 'wrap' }}>
           {TABS.map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)} className="xc-tab"
-              style={{ background: activeTab === tab.key ? (tab.key === 'topup' ? '#3b82f6' : tab.key === 'transactions' ? '#22c55e' : '#d97706') : colors.bgCard, border: '1px solid ' + (activeTab === tab.key ? 'transparent' : colors.border), color: colors.textMain, padding: '11px 20px', borderRadius: 12, cursor: 'pointer', fontWeight: 700, fontSize: 14, display: 'flex', alignItems: 'center', gap: 7 }}>
+              style={{ background: activeTab === tab.key ? (tab.key === 'topup' ? '#3b82f6' : tab.key === 'transactions' ? '#22c55e' : '#7c5cff') : colors.bgCard, border: '1px solid ' + (activeTab === tab.key ? 'transparent' : colors.border), color: colors.textMain, padding: '11px 20px', borderRadius: 12, cursor: 'pointer', fontWeight: 700, fontSize: 14, display: 'flex', alignItems: 'center', gap: 7 }}>
               {tab.icon} {tab.label}
             </button>
           ))}

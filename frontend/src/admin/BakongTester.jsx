@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 //  1) Run diagnostics  → config, token expiry, can this server reach NBC?
 //  2) Create test QR   → pay a tiny amount, see if verification detects it (no points are credited)
 
-const C = { card: '#14110f', border: '#2a2420', text: '#f5efe6', muted: '#a39a8e', accent: '#f59e0b', ok: '#34d399', warn: '#fbbf24', bad: '#f87171' };
+const C = { card: '#100d1c', border: '#241f3a', text: '#f5efe6', muted: '#a39a8e', accent: '#a78bfa', ok: '#34d399', warn: '#fbbf24', bad: '#f87171' };
 const ICON = { pass: '✅', warn: '⚠️', fail: '❌', skip: '⏭️' };
 const COLOR = { pass: C.ok, warn: C.warn, fail: C.bad, skip: C.muted };
 
@@ -14,7 +14,7 @@ const btn = (primary, disabled) => ({
   border: `1px solid ${primary ? C.accent : C.border}`, borderRadius: 10, padding: '10px 18px',
   fontWeight: 700, fontSize: 13, cursor: disabled ? 'not-allowed' : 'pointer', opacity: disabled ? 0.55 : 1,
 });
-const input = { background: '#0c0a09', border: `1px solid ${C.border}`, color: C.text, borderRadius: 10, padding: '10px 12px', fontSize: 14, outline: 'none' };
+const input = { background: '#0a0814', border: `1px solid ${C.border}`, color: C.text, borderRadius: 10, padding: '10px 12px', fontSize: 14, outline: 'none' };
 
 async function api(path, opts) {
   const res = await fetch(path, opts);
@@ -125,7 +125,7 @@ export default function BakongTester() {
             </div>
             <div style={{ display: 'grid', gap: 8, marginTop: 12 }}>
               {diag.checks.map(c => (
-                <div key={c.id} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 12px', background: '#0c0a09', border: `1px solid ${C.border}`, borderRadius: 10 }}>
+                <div key={c.id} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 12px', background: '#0a0814', border: `1px solid ${C.border}`, borderRadius: 10 }}>
                   <span style={{ fontSize: 16 }}>{ICON[c.status]}</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontWeight: 700, fontSize: 13.5, color: COLOR[c.status] }}>{c.label}</div>

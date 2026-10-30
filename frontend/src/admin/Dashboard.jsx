@@ -8,21 +8,21 @@ const API = '';
 
 // ── Dark theme tokens (matches the rest of the admin panel / site) ───────────
 const LT = {
-  bg:        '#0c0b0a',
-  card:      '#14110f',
-  border:    '#2a2420',
+  bg:        '#07060d',
+  card:      '#100d1c',
+  border:    '#241f3a',
   borderSoft:'#1c1c2a',
   text:      '#ffffff',
   textSub:   '#c7cad1',
   textMuted: '#94a3b8',
   textFaint: '#6b7280',
-  accent:    '#d97706',
+  accent:    '#7c5cff',
 };
 
 const STAT_META = {
-  revenue:    { label: 'Ecommerce Revenue',    bg: 'rgba(217,119,6,0.14)',  accent: '#f59e0b', icon: '💰' },
+  revenue:    { label: 'Ecommerce Revenue',    bg: 'rgba(124,92,255,0.14)',  accent: '#a78bfa', icon: '💰' },
   customers:  { label: 'New Customers',        bg: 'rgba(16,185,129,0.14)', accent: '#10b981', icon: '🧑‍🤝‍🧑' },
-  repeat:     { label: 'Repeat Purchase Rate', bg: 'rgba(217,119,6,0.16)',  accent: '#fbbf24', icon: '🔁' },
+  repeat:     { label: 'Repeat Purchase Rate', bg: 'rgba(124,92,255,0.16)',  accent: '#fbbf24', icon: '🔁' },
   aov:        { label: 'Average Order Value',  bg: 'rgba(20,184,166,0.14)', accent: '#2dd4bf', icon: '🧾' },
   conversion: { label: 'Conversion Rate',      bg: 'rgba(244,63,94,0.14)',  accent: '#fb7185', icon: '📈' },
 };
@@ -91,7 +91,7 @@ function SummaryChart({ summary }) {
         <polyline points={ordersPts} fill="none" stroke="#fbbf24" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
         <polyline points={revenuePts} fill="none" stroke="#22c55e" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
         {summary.map((s, i) => (
-          <circle key={i} cx={xFor(i)} cy={yForRevenue(s.revenue)} r={i === peakIdx ? 4.5 : 3} fill={i === peakIdx ? '#22c55e' : '#14110f'} stroke="#22c55e" strokeWidth="2" />
+          <circle key={i} cx={xFor(i)} cy={yForRevenue(s.revenue)} r={i === peakIdx ? 4.5 : 3} fill={i === peakIdx ? '#22c55e' : '#100d1c'} stroke="#22c55e" strokeWidth="2" />
         ))}
         {summary.map((s, i) => (
           <text key={i} x={xFor(i)} y={h + 16} textAnchor="middle" fontSize="10.5" fill={LT.textFaint}>{s.label}</text>
@@ -322,7 +322,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
                       <div style={{ fontSize: 13, fontWeight: 700, color: LT.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.title}</div>
                       <div style={{ fontSize: 11, color: LT.textFaint }}>ID: {String(p.id).slice(-6).toUpperCase()}</div>
                     </div>
-                    <div style={{ background: 'rgba(217,119,6,0.14)', color: '#fbbf24', fontSize: 11, fontWeight: 700, padding: '5px 11px', borderRadius: 20, whiteSpace: 'nowrap' }}>
+                    <div style={{ background: 'rgba(124,92,255,0.14)', color: '#fbbf24', fontSize: 11, fontWeight: 700, padding: '5px 11px', borderRadius: 20, whiteSpace: 'nowrap' }}>
                       {p.sales} Sale{p.sales === 1 ? '' : 's'}
                     </div>
                   </div>
@@ -339,7 +339,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
             <Card style={{ padding: 0, overflow: 'hidden' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 22px 14px' }}>
                 <div style={secTitle}>Recent Orders</div>
-                <Link to="/admin-orders" style={{ background: 'rgba(217,119,6,0.14)', color: '#fbbf24', border: '1px solid #d97706', padding: '7px 16px', borderRadius: 8, fontSize: 12.5, fontWeight: 700, textDecoration: 'none' }}>View All</Link>
+                <Link to="/admin-orders" style={{ background: 'rgba(124,92,255,0.14)', color: '#fbbf24', border: '1px solid #7c5cff', padding: '7px 16px', borderRadius: 8, fontSize: 12.5, fontWeight: 700, textDecoration: 'none' }}>View All</Link>
               </div>
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
@@ -380,7 +380,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {(stats?.weeklyTopCustomers || []).map(c => (
                   <div key={c.email} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 38, height: 38, borderRadius: '50%', background: '#d97706', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
+                    <div style={{ width: 38, height: 38, borderRadius: '50%', background: '#7c5cff', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
                       {c.avatar ? <img src={c.avatar} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : initials(c.username)}
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
@@ -430,7 +430,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
                     {dep.amount?.toLocaleString()} ៛ → {Math.floor((dep.amount || 0) / pointRate)} pts
                   </td>
                   <td style={{ ...td, textAlign: 'right' }}>
-                    <button onClick={() => setSelectedSlipUrl(dep.slipUrl)} style={{ background: 'rgba(217,119,6,0.14)', border: '1px solid #d97706', color: '#fbbf24', padding: '6px 12px', borderRadius: 6, marginRight: 6, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>🖼️ View Slip</button>
+                    <button onClick={() => setSelectedSlipUrl(dep.slipUrl)} style={{ background: 'rgba(124,92,255,0.14)', border: '1px solid #7c5cff', color: '#fbbf24', padding: '6px 12px', borderRadius: 6, marginRight: 6, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>🖼️ View Slip</button>
                     <button onClick={() => handleVerifyDeposit(dep.id, 'approve')} style={{ background: '#16a34a', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: 6, marginRight: 6, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>Approve</button>
                     <button onClick={() => handleVerifyDeposit(dep.id, 'reject')} style={{ background: '#e11d48', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>Reject</button>
                   </td>
@@ -451,7 +451,7 @@ export default function Dashboard({ products, setProducts, pendingDeposits, setP
         <>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
             <div style={{ fontSize: 18, fontWeight: 800, color: LT.text }}>Inventory Products ({products.length})</div>
-            <Link to="/admin-upload" style={{ background: '#d97706', color: '#fff', padding: '10px 20px', borderRadius: 10, textDecoration: 'none', fontSize: 13, fontWeight: 700 }}>+ Add Product</Link>
+            <Link to="/admin-upload" style={{ background: '#7c5cff', color: '#fff', padding: '10px 20px', borderRadius: 10, textDecoration: 'none', fontSize: 13, fontWeight: 700 }}>+ Add Product</Link>
           </div>
           <Card style={{ padding: 0, overflow: 'hidden' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13.5 }}>

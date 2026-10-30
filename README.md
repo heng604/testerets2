@@ -26,7 +26,7 @@ Storefront http://localhost:5173 · Admin http://localhost:5173/admin/admin-dash
 ## 3. Deploy on Vercel
 1. Push this folder to GitHub → **Vercel → Add New → Project** → import it. Leave framework preset as detected; `vercel.json` sets everything.
 2. **Settings → Environment Variables** (Production): `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `JWT_SECRET`, `ADMIN_EMAIL`, `GOOGLE_CLIENT_ID` (see `.env.example`).
-3. Google Cloud Console → your OAuth client → add your Vercel domain to **Authorized JavaScript origins**.
+3. Google Cloud Console → your OAuth client → add `https://YOUR-APP.vercel.app` and `http://localhost:5173` to **Authorized JavaScript origins**. `GOOGLE_CLIENT_ID` in Vercel must equal the client ID in `frontend/index.html`, `frontend/admin/index.html` and `Login.jsx`.
 4. Deploy. Check `https://YOUR-APP.vercel.app/api/health` → all `true`.
 5. Open `/admin/`, sign in **with Google** using the admin email → Dashboard → **🧪 Bakong Tester**.
 

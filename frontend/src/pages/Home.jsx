@@ -135,7 +135,7 @@ export default function Home({ products, transactions, memberCount = 0, orderCou
               <img src="/img/leader.jpg" alt={settings.siteName} onError={e => { e.currentTarget.src = 'https://i.imgur.com/B9P6w0t.jpeg'; }} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{ fontSize: '18px', fontWeight: '800', color: colors.textMain, marginBottom: '4px' }}>{settings.siteName}</div>
-            <div style={{ fontSize: '13px', color: '#d97706', fontWeight: '600' }}>{t('home.ownerDeveloper')}</div>
+            <div style={{ fontSize: '13px', color: '#7c5cff', fontWeight: '600' }}>{t('home.ownerDeveloper')}</div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function Products({ products }) {
   const priceRanges = [
     { value: 'all',  label: t('products.price.all'),  color: '#94a3b8' },
     { value: 'low',  label: t('products.price.low'),  color: '#10b981' },
-    { value: 'mid',  label: t('products.price.mid'),  color: '#f59e0b' },
+    { value: 'mid',  label: t('products.price.mid'),  color: '#a78bfa' },
     { value: 'high', label: t('products.price.high'), color: '#ef4444' },
   ];
 
@@ -75,9 +75,9 @@ export default function Products({ products }) {
                 <div
                   key={opt.value}
                   onClick={() => { setSortBy(opt.value); setSortOpen(false); }}
-                  style={{ padding: '11px 16px', fontSize: '13px', cursor: 'pointer', color: sortBy === opt.value ? '#fbbf24' : colors.textMuted, background: sortBy === opt.value ? 'rgba(217,119,6,0.15)' : 'transparent', fontWeight: sortBy === opt.value ? '700' : '400' }}
+                  style={{ padding: '11px 16px', fontSize: '13px', cursor: 'pointer', color: sortBy === opt.value ? '#fbbf24' : colors.textMuted, background: sortBy === opt.value ? 'rgba(124,92,255,0.15)' : 'transparent', fontWeight: sortBy === opt.value ? '700' : '400' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(128,128,128,0.08)'}
-                  onMouseLeave={e => e.currentTarget.style.background = sortBy === opt.value ? 'rgba(217,119,6,0.15)' : 'transparent'}
+                  onMouseLeave={e => e.currentTarget.style.background = sortBy === opt.value ? 'rgba(124,92,255,0.15)' : 'transparent'}
                 >
                   {opt.label}
                 </div>

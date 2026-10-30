@@ -113,7 +113,7 @@ export default function Products({ products, setProducts }) {
                     )}
                   </td>
                   <td style={{ padding: '16px 20px', color: '#10b981', fontWeight: '700' }}>{product.priceInPoints} ពិន្ទុ</td>
-                  <td style={{ padding: '16px 20px', color: '#f59e0b' }}>
+                  <td style={{ padding: '16px 20px', color: '#a78bfa' }}>
                     {product.discountCode
                       ? <span>{product.discountCode} ({product.discountPercent || 0}%)</span>
                       : <span style={{ color: '#475569' }}>—</span>
@@ -138,11 +138,11 @@ export default function Products({ products, setProducts }) {
                       )}
                       <button
                         onClick={() => setEditingProduct(product)}
-                        style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.35)', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}
+                        style={{ background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.35)', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}
                       >
                         ✏️ កែប្រែ
                       </button>
-                      <Link to={`/mod/${product._id}`} style={{ background: 'rgba(217,119,6,0.15)', border: '1px solid rgba(217,119,6,0.3)', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', textDecoration: 'none', fontSize: '12px', fontWeight: '600' }}>
+                      <Link to={`/mod/${product._id}`} style={{ background: 'rgba(124,92,255,0.15)', border: '1px solid rgba(124,92,255,0.3)', color: '#fbbf24', padding: '6px 12px', borderRadius: '4px', textDecoration: 'none', fontSize: '12px', fontWeight: '600' }}>
                         មើល
                       </Link>
                       <button

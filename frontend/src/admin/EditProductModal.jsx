@@ -108,14 +108,14 @@ export default function EditProductModal({ product, onClose, onSave }) {
   };
 
   const thumbStyle = { width: '80px', height: '66px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #2a2a38', display: 'block' };
-  const removeBtn = { position: 'absolute', top: '-6px', right: '-6px', width: '20px', height: '20px', borderRadius: '50%', background: '#14110f', border: '1px solid #3b1820', color: '#ef4444', fontSize: '10px', fontWeight: '900', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 };
+  const removeBtn = { position: 'absolute', top: '-6px', right: '-6px', width: '20px', height: '20px', borderRadius: '50%', background: '#100d1c', border: '1px solid #3b1820', color: '#ef4444', fontSize: '10px', fontWeight: '900', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 };
 
   return (
     <>
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 1000, backdropFilter: 'blur(2px)' }} />
       <div style={{
         position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        zIndex: 1001, background: '#14110f', border: `1px solid ${XCLOUD_THEME.border}`,
+        zIndex: 1001, background: '#100d1c', border: `1px solid ${XCLOUD_THEME.border}`,
         borderRadius: '16px', padding: '28px 32px', width: '100%', maxWidth: '520px',
         maxHeight: '90vh', overflowY: 'auto', boxShadow: '0 24px 60px rgba(0,0,0,0.8)',
       }}>
@@ -180,8 +180,8 @@ export default function EditProductModal({ product, onClose, onSave }) {
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 gap: '6px', padding: '20px 24px', borderRadius: '10px',
-                border: `2px dashed ${isDragOver ? '#fbbf24' : '#d97706'}`,
-                background: isDragOver ? 'rgba(217,119,6,0.12)' : 'rgba(217,119,6,0.04)',
+                border: `2px dashed ${isDragOver ? '#fbbf24' : '#7c5cff'}`,
+                background: isDragOver ? 'rgba(124,92,255,0.12)' : 'rgba(124,92,255,0.04)',
                 cursor: 'pointer', marginBottom: '12px', transition: 'all 0.15s',
               }}
             >

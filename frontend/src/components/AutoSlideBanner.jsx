@@ -48,7 +48,7 @@ export function AutoSlideBanner({ images, intervalMs = 1000, height, minHeight =
         borderRadius: rounded ? '16px' : '0px',
         overflow: 'hidden',
         border: '4px solid rgba(165, 180, 252, 0.35)',
-        background: '#14110f',
+        background: '#100d1c',
         lineHeight: 0, // avoids a few stray px of gap under inline images
       }}
     >

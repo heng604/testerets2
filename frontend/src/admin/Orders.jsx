@@ -42,7 +42,7 @@ function EditOrderModal({ order, onClose, onSave }) {
   return (
     <>
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 1000, backdropFilter: 'blur(2px)' }} />
-      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 1001, background: '#14110f', border: `1px solid ${XCLOUD_THEME.border}`, borderRadius: '16px', padding: '28px 32px', width: '100%', maxWidth: '440px', boxShadow: '0 24px 60px rgba(0,0,0,0.8)' }}>
+      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 1001, background: '#100d1c', border: `1px solid ${XCLOUD_THEME.border}`, borderRadius: '16px', padding: '28px 32px', width: '100%', maxWidth: '440px', boxShadow: '0 24px 60px rgba(0,0,0,0.8)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#fff', margin: 0 }}>✏️ កែប្រែការបញ្ជាទិញ</h3>
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: '22px', cursor: 'pointer' }}>✕</button>
@@ -67,7 +67,7 @@ function EditOrderModal({ order, onClose, onSave }) {
             <button onClick={onClose} style={{ flex: 1, padding: '12px', background: 'transparent', border: `1px solid ${XCLOUD_THEME.border}`, borderRadius: '8px', color: '#64748b', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>
               បោះបង់
             </button>
-            <button onClick={handleSave} disabled={saving} style={{ flex: 2, padding: '12px', background: saving ? '#374151' : '#d97706', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '700', fontSize: '14px', cursor: saving ? 'not-allowed' : 'pointer' }}>
+            <button onClick={handleSave} disabled={saving} style={{ flex: 2, padding: '12px', background: saving ? '#374151' : '#7c5cff', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '700', fontSize: '14px', cursor: saving ? 'not-allowed' : 'pointer' }}>
               {saving ? '⏳ កំពុងរក្សាទុក...' : '💾 រក្សាទុក'}
             </button>
           </div>
@@ -105,7 +105,7 @@ function DeleteOrderModal({ order, onClose, onDeleted }) {
   return (
     <>
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 1000, backdropFilter: 'blur(2px)' }} />
-      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 1001, background: '#14110f', border: '1px solid #7f1d1d', borderRadius: '16px', padding: '28px 32px', width: '100%', maxWidth: '420px', boxShadow: '0 24px 60px rgba(0,0,0,0.8)' }}>
+      <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 1001, background: '#100d1c', border: '1px solid #7f1d1d', borderRadius: '16px', padding: '28px 32px', width: '100%', maxWidth: '420px', boxShadow: '0 24px 60px rgba(0,0,0,0.8)' }}>
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
           <div style={{ fontSize: '40px', marginBottom: '12px' }}>🗑️</div>
           <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#fff', margin: '0 0 8px 0' }}>លុបការបញ្ជាទិញនេះ?</h3>
@@ -214,7 +214,7 @@ export default function Orders() {
                 <td style={{ padding: '16px 20px', textAlign: 'right' }}>
                   <button
                     onClick={() => setEditingOrder(order)}
-                    style={{ background: 'rgba(217,119,6,0.15)', border: '1px solid rgba(217,119,6,0.3)', color: '#fbbf24', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '12px', marginRight: '8px' }}
+                    style={{ background: 'rgba(124,92,255,0.15)', border: '1px solid rgba(124,92,255,0.3)', color: '#fbbf24', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '12px', marginRight: '8px' }}
                   >
                     ✏️ កែប្រែ
                   </button>

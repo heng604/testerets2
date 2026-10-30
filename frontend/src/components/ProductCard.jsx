@@ -25,7 +25,7 @@ export function ProductCard({ item }) {
       <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <div>
           <h3 style={{ fontSize: '15px', fontWeight: '700', margin: '0 0 4px 0', color: colors.textMain }}>{item.title}</h3>
-          <p style={{ fontSize: '12px', color: '#f59e0b', margin: '0 0 14px 0' }}>{item.description}</p>
+          <p style={{ fontSize: '12px', color: '#a78bfa', margin: '0 0 14px 0' }}>{item.description}</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '14px', borderTop: `1px solid ${colors.border}` }}>
           <div style={{ fontSize: '13px', color: '#10b981', fontWeight: '800', display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -85,7 +85,7 @@ export function OwnedProductCard({ item, needsUpdate }) {
   };
 
   return (
-    <div className="xc-owned-card" style={{ background: colors.bgCard, borderRadius: '14px', border: isAdminUpdated ? '1px solid rgba(245,158,11,0.5)' : `1px solid ${colors.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: isAdminUpdated ? '0 4px 24px rgba(245,158,11,0.12)' : (colors.mode === 'light' ? colors.cardShadow : '0 4px 24px rgba(217,119,6,0.08)') }}>
+    <div className="xc-owned-card" style={{ background: colors.bgCard, borderRadius: '14px', border: isAdminUpdated ? '1px solid rgba(167,139,250,0.5)' : `1px solid ${colors.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: isAdminUpdated ? '0 4px 24px rgba(167,139,250,0.12)' : (colors.mode === 'light' ? colors.cardShadow : '0 4px 24px rgba(124,92,255,0.08)') }}>
       <div style={{ position: 'relative', width: '100%', height: '200px', flexShrink: 0 }}>
         {image
           ? <img src={image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { e.target.style.display = 'none'; }} />
@@ -95,7 +95,7 @@ export function OwnedProductCard({ item, needsUpdate }) {
           ✅ {t('productCard.purchased')}
         </div>
         {isAdminUpdated && (
-          <div style={{ position: 'absolute', top: 10, right: 10, background: 'rgba(245,158,11,0.95)', color: '#fff', fontSize: 11, fontWeight: 800, padding: '4px 10px', borderRadius: 20, display: 'flex', alignItems: 'center', gap: 5, animation: 'pulse 1.5s infinite' }}>
+          <div style={{ position: 'absolute', top: 10, right: 10, background: 'rgba(167,139,250,0.95)', color: '#fff', fontSize: 11, fontWeight: 800, padding: '4px 10px', borderRadius: 20, display: 'flex', alignItems: 'center', gap: 5, animation: 'pulse 1.5s infinite' }}>
             🔔 Admin Updated
           </div>
         )}
@@ -114,7 +114,7 @@ export function OwnedProductCard({ item, needsUpdate }) {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 }}>
           <span style={{ color: '#22c55e', fontWeight: 800, fontSize: 13 }}>🪙 {price.toLocaleString()} {t('productCard.points')}</span>
-          <button onClick={() => id && navigate('/mod/' + id, { state: { fromProfile: true } })} style={{ background: 'none', border: 'none', color: '#f59e0b', fontSize: 12, fontWeight: 700, cursor: 'pointer', padding: 0 }}>
+          <button onClick={() => id && navigate('/mod/' + id, { state: { fromProfile: true } })} style={{ background: 'none', border: 'none', color: '#a78bfa', fontSize: 12, fontWeight: 700, cursor: 'pointer', padding: 0 }}>
             {t('productCard.details')} ➜
           </button>
         </div>
@@ -124,12 +124,12 @@ export function OwnedProductCard({ item, needsUpdate }) {
           <button
             onClick={handleUpdate}
             style={{
-              marginTop: 4, width: '100%', padding: '13px 0', borderRadius: 10, border: '2px solid #f59e0b',
+              marginTop: 4, width: '100%', padding: '13px 0', borderRadius: 10, border: '2px solid #a78bfa',
               fontWeight: 800, fontSize: 14, cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-              background: 'linear-gradient(135deg,#d97706,#f59e0b)',
+              background: 'linear-gradient(135deg,#7c5cff,#a78bfa)',
               color: '#fff',
-              boxShadow: '0 2px 16px rgba(245,158,11,0.35)',
+              boxShadow: '0 2px 16px rgba(167,139,250,0.35)',
               animation: 'pulse 2s infinite',
             }}
           >

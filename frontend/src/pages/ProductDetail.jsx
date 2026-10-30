@@ -172,7 +172,7 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
             )}
             <button onClick={handlePrevImage} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(4,4,6,0.75)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', zIndex: 5 }}>◀</button>
             <button onClick={handleNextImage} style={{ position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(4,4,6,0.75)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', zIndex: 5 }}>▶</button>
-            <div style={{ position: 'absolute', top: '16px', left: '16px', background: '#d97706', color: '#fff', padding: '4px 12px', borderRadius: '20px', fontSize: '11px', fontWeight: '700' }}>💎 {product.title}</div>
+            <div style={{ position: 'absolute', top: '16px', left: '16px', background: '#7c5cff', color: '#fff', padding: '4px 12px', borderRadius: '20px', fontSize: '11px', fontWeight: '700' }}>💎 {product.title}</div>
             <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px', zIndex: 5 }}>
               {productImages.map((_, idx) => (
                 <div key={idx} style={{ width: '8px', height: '8px', borderRadius: '50%', background: currentImgIndex === idx ? '#fff' : 'rgba(255,255,255,0.4)', transition: 'background 0.2s' }} />
@@ -182,7 +182,7 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
 
           <div style={{ display: 'flex', gap: '24px', borderBottom: `1px solid ${XCLOUD_THEME.border}`, marginTop: '30px', paddingBottom: '2px' }}>
             {['details', 'screenshots'].map(tab => (
-              <button key={tab} onClick={() => setActiveTab(tab)} style={{ background: 'none', border: 'none', color: activeTab === tab ? XCLOUD_THEME.textMain : XCLOUD_THEME.textMuted, fontSize: '14px', fontWeight: '700', paddingBottom: '12px', borderBottom: activeTab === tab ? '2px solid #d97706' : '2px solid transparent', cursor: 'pointer' }}>
+              <button key={tab} onClick={() => setActiveTab(tab)} style={{ background: 'none', border: 'none', color: activeTab === tab ? XCLOUD_THEME.textMain : XCLOUD_THEME.textMuted, fontSize: '14px', fontWeight: '700', paddingBottom: '12px', borderBottom: activeTab === tab ? '2px solid #7c5cff' : '2px solid transparent', cursor: 'pointer' }}>
                 {tab === 'details' ? t('productDetail.tab.details') : t('productDetail.tab.screenshots')}
               </button>
             ))}
@@ -194,7 +194,7 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
                 {product.description && <div style={{ color: '#fbbf24', fontSize: '14px', lineHeight: '1.5' }}>{product.description}</div>}
                 {product.details && product.details.map((detail, idx) => (
                   <div key={idx} style={{ color: '#fbbf24', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ color: '#d97706', fontSize: '16px' }}>—</span> {detail}
+                    <span style={{ color: '#7c5cff', fontSize: '16px' }}>—</span> {detail}
                   </div>
                 ))}
               </div>
@@ -223,7 +223,7 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
             <div style={{ color: XCLOUD_THEME.textMuted, fontSize: '12px', fontWeight: '600', textTransform: 'uppercase', marginBottom: '8px' }}>{t('productDetail.discountCode')}</div>
             <div style={{ display: 'flex', gap: '10px' }}>
               <input type="text" placeholder={t('productDetail.discountPlaceholder')} value={promoCode} onChange={e => setPromoCode(e.target.value)} style={{ ...inputStyle, padding: '10px 14px', background: XCLOUD_THEME.bgInput, border: `1px solid ${XCLOUD_THEME.border}`, color: XCLOUD_THEME.textMain }} />
-              <button onClick={applyPromo} style={{ background: '#2a1a05', border: `1px solid ${XCLOUD_THEME.border}`, color: '#fbbf24', padding: '0 20px', borderRadius: '8px', fontWeight: '700', fontSize: '13px', cursor: 'pointer' }}>{t('productDetail.apply')}</button>
+              <button onClick={applyPromo} style={{ background: '#1c1540', border: `1px solid ${XCLOUD_THEME.border}`, color: '#fbbf24', padding: '0 20px', borderRadius: '8px', fontWeight: '700', fontSize: '13px', cursor: 'pointer' }}>{t('productDetail.apply')}</button>
             </div>
           </div>
 
@@ -247,14 +247,14 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
                 OUT OF STOCK
               </button>
             ) : !isReallyOwned ? (
-              <button onClick={() => handlePurchase(false)} disabled={loadingOwnership} style={{ display: 'block', width: '100%', padding: '14px', background: '#d97706', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loadingOwnership ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}>
+              <button onClick={() => handlePurchase(false)} disabled={loadingOwnership} style={{ display: 'block', width: '100%', padding: '14px', background: '#7c5cff', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: loadingOwnership ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}>
                 🛒 {t('productDetail.buyNow')} - {finalPrice.toLocaleString()} {t('productDetail.points')}
               </button>
             ) : needsUpdate ? (
               <button
                 onClick={handleAcknowledgeAndDownload}
                 disabled={acknowledging || loadingOwnership}
-                style={{ display: 'block', width: '100%', padding: '14px', background: 'linear-gradient(135deg,#d97706,#f59e0b)', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: (acknowledging || loadingOwnership) ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}
+                style={{ display: 'block', width: '100%', padding: '14px', background: 'linear-gradient(135deg,#7c5cff,#a78bfa)', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: (acknowledging || loadingOwnership) ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}
               >
                 {(acknowledging || loadingOwnership) ? t('productDetail.updating') : t('productDetail.newVersion')}
               </button>
@@ -262,7 +262,7 @@ export default function ProductDetail({ products, userPoints, setUserPoints, pur
               <button
                 onClick={handleBuyAgain}
                 disabled={buyingAgain || loadingOwnership}
-                style={{ display: 'block', width: '100%', padding: '14px', background: '#d97706', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: (buyingAgain || loadingOwnership) ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}
+                style={{ display: 'block', width: '100%', padding: '14px', background: '#7c5cff', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '14px', cursor: (buyingAgain || loadingOwnership) ? 'not-allowed' : 'pointer', textAlign: 'center', boxSizing: 'border-box' }}
               >
                 {buyingAgain ? t('productDetail.updating') : `${t('productDetail.buyAgain')} - ${finalPrice.toLocaleString()} ${t('productDetail.points')}`}
               </button>

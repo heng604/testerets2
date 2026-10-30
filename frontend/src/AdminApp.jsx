@@ -57,11 +57,11 @@ function Sidebar({ userEmail, onLogout }) {
 
   return (
     <aside style={{
-      width: '220px', minHeight: '100vh', background: mode === 'dark' ? '#100e0c' : colors.bgCard,
+      width: '220px', minHeight: '100vh', background: mode === 'dark' ? '#0b0913' : colors.bgCard,
       borderRight: `1px solid ${colors.border}`, display: 'flex', flexDirection: 'column',
       padding: '24px 12px', gap: '4px', flexShrink: 0, position: 'sticky', top: 0, height: '100vh',
     }}>
-      <div style={{ color: '#f59e0b', fontWeight: 800, fontSize: '16px', padding: '0 10px', marginBottom: '24px' }}>
+      <div style={{ color: '#a78bfa', fontWeight: 800, fontSize: '16px', padding: '0 10px', marginBottom: '24px' }}>
         ⚙ Masatoshi<br />
         <span style={{ color: colors.textMuted, fontSize: '11px', fontWeight: 400 }}>{t('admin.panel')}</span>
       </div>
@@ -74,8 +74,8 @@ function Sidebar({ userEmail, onLogout }) {
             display: 'block', padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
             fontSize: '13px', fontWeight: 600,
             color: isActive ? colors.textMain : colors.textMuted,
-            background: isActive ? 'rgba(245,158,11,0.15)' : 'transparent',
-            borderLeft: isActive ? '3px solid #f59e0b' : '3px solid transparent',
+            background: isActive ? 'rgba(167,139,250,0.15)' : 'transparent',
+            borderLeft: isActive ? '3px solid #a78bfa' : '3px solid transparent',
             transition: 'all 0.15s',
           })}
         >

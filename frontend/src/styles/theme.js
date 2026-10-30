@@ -2,14 +2,14 @@
 // Dark mode (original / default) palette
 export const DARK_THEME = {
   mode: 'dark',
-  bgDark: '#0c0b0a',
-  bgCard: '#14110f',
-  bgInput: '#0c0a09',
-  border: '#2a2420',
+  bgDark: '#07060d',
+  bgCard: '#100d1c',
+  bgInput: '#0a0814',
+  border: '#241f3a',
   cardShadow: 'none',
   textMain: '#ffffff',
   textMuted: '#94a3b8',
-  accentPurple: '#d97706',
+  accentPurple: '#7c5cff',
   accentGreen: '#10b981',
   accentDanger: '#ef4444',
 };
@@ -24,7 +24,7 @@ export const LIGHT_THEME = {
   cardShadow: '0 1px 3px rgba(15,17,21,0.08), 0 1px 2px rgba(15,17,21,0.05)',
   textMain: '#0f1115',
   textMuted: '#475066',
-  accentPurple: '#d97706',
+  accentPurple: '#7c5cff',
   accentGreen: '#10b981',
   accentDanger: '#ef4444',
 };
@@ -43,8 +43,8 @@ export const navLinkStyle = {
 };
 
 export const navTopUpButtonStyle = {
-  background: 'rgba(217,119,6, 0.1)',
-  border: '1px solid #d97706',
+  background: 'rgba(124,92,255, 0.1)',
+  border: '1px solid #7c5cff',
   color: '#fbbf24',
   padding: '6px 12px',
   borderRadius: '6px',
@@ -90,8 +90,8 @@ export function injectGlobalStyles() {
       }
       .xc-card:hover {
         transform: translateY(-8px) scale(1.02) !important;
-        box-shadow: 0 24px 60px rgba(217,119,6,0.28), 0 8px 20px rgba(0,0,0,0.6) !important;
-        border-color: #d97706 !important;
+        box-shadow: 0 24px 60px rgba(124,92,255,0.28), 0 8px 20px rgba(0,0,0,0.6) !important;
+        border-color: #7c5cff !important;
       }
       .xc-card:active {
         transform: translateY(-4px) scale(0.99) !important;
@@ -100,7 +100,7 @@ export function injectGlobalStyles() {
       .xc-card-img { transition: transform 0.35s ease !important; }
       .xc-card-img-wrap { overflow: hidden; }
       .xc-card:hover .xc-card-img { transform: scale(1.07) !important; }
-      .xc-card:hover .xc-view-btn { background: rgba(217,119,6,0.3) !important; border-color: rgba(217,119,6,0.7) !important; }
+      .xc-card:hover .xc-view-btn { background: rgba(124,92,255,0.3) !important; border-color: rgba(124,92,255,0.7) !important; }
       .xc-card:hover .xc-tg-btn  { background: rgba(0,136,204,0.25) !important; border-color: rgba(0,136,204,0.6) !important; }
 
       .xc-stat-card, .xc-leader-card, .xc-info-card, .xc-owned-card {
@@ -109,8 +109,8 @@ export function injectGlobalStyles() {
       }
       .xc-stat-card:hover, .xc-leader-card:hover, .xc-info-card:hover, .xc-owned-card:hover {
         transform: translateY(-6px) !important;
-        box-shadow: 0 16px 40px rgba(217,119,6,0.22) !important;
-        border-color: #d97706 !important;
+        box-shadow: 0 16px 40px rgba(124,92,255,0.22) !important;
+        border-color: #7c5cff !important;
       }
       .xc-stat-card:active, .xc-leader-card:active, .xc-info-card:active, .xc-owned-card:active {
         transform: translateY(-2px) scale(0.99) !important;
@@ -136,7 +136,7 @@ export function injectGlobalStyles() {
       .xc-tx-row:hover {
         transform: translateY(-3px) !important;
         box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
-        border-color: rgba(217,119,6,0.4) !important;
+        border-color: rgba(124,92,255,0.4) !important;
       }
       .xc-tx-row:active {
         transform: translateY(-1px) scale(0.995) !important;
@@ -195,7 +195,7 @@ export function injectGlobalStyles() {
       }
       .xc-thumb:hover {
         transform: scale(1.08) !important;
-        border-color: #d97706 !important;
+        border-color: #7c5cff !important;
       }
       .xc-thumb:active {
         transform: scale(0.96) !important;
@@ -206,7 +206,7 @@ export function injectGlobalStyles() {
         transition: background 0.15s ease !important;
       }
       .xc-admin-row:hover {
-        background: rgba(217,119,6,0.07) !important;
+        background: rgba(124,92,255,0.07) !important;
       }
 
       .xc-tab {

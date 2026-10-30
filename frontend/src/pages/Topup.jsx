@@ -356,9 +356,9 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
               key={key}
               className="xc-pay-method"
               onClick={() => setActiveMethod(key)}
-              style={{ flex: '1 1 140px', background: activeMethod === key ? 'rgba(217,119,6,0.15)' : XCLOUD_THEME.bgCard, border: `1px solid ${activeMethod === key ? '#d97706' : XCLOUD_THEME.border}`, borderRadius: '12px', padding: '16px', cursor: 'pointer', display: 'flex', gap: '12px', alignItems: 'center' }}
+              style={{ flex: '1 1 140px', background: activeMethod === key ? 'rgba(124,92,255,0.15)' : XCLOUD_THEME.bgCard, border: `1px solid ${activeMethod === key ? '#7c5cff' : XCLOUD_THEME.border}`, borderRadius: '12px', padding: '16px', cursor: 'pointer', display: 'flex', gap: '12px', alignItems: 'center' }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, padding: '6px', border: activeMethod === key ? '2px solid #d97706' : '1px solid rgba(0,0,0,0.06)', boxSizing: 'border-box', overflow: 'hidden' }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, padding: '6px', border: activeMethod === key ? '2px solid #7c5cff' : '1px solid rgba(0,0,0,0.06)', boxSizing: 'border-box', overflow: 'hidden' }}>
                 <img src={gw.logo} alt={gw.title} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} onError={e => { e.target.style.display = 'none'; e.target.parentElement.textContent = key === 'bakong_auto' ? '⚡' : key === 'abapay' ? '🏦' : '🏧'; }} />
               </div>
               <div>
@@ -392,8 +392,8 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
                         onClick={() => setBkCurrency(c)}
                         style={{
                           flex: 1, padding: '10px', borderRadius: 8, fontWeight: 700, fontSize: 13, cursor: 'pointer',
-                          border: `1px solid ${bkCurrency === c ? '#d97706' : XCLOUD_THEME.border}`,
-                          background: bkCurrency === c ? 'rgba(217,119,6,0.15)' : XCLOUD_THEME.bgDark,
+                          border: `1px solid ${bkCurrency === c ? '#7c5cff' : XCLOUD_THEME.border}`,
+                          background: bkCurrency === c ? 'rgba(124,92,255,0.15)' : XCLOUD_THEME.bgDark,
                           color: XCLOUD_THEME.textMain,
                         }}
                       >
@@ -491,7 +491,7 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
                   កំពុងរង់ចាំការបង់ប្រាក់... ({Math.floor(bkSecondsLeft / 60)}:{String(bkSecondsLeft % 60).padStart(2, '0')})
                 </div>
                 {bkNotice === 'delayed' && (
-                  <div style={{ marginTop: 14, background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: 8, padding: '10px 14px', fontSize: 12, color: '#f59e0b', textAlign: 'left' }}>
+                  <div style={{ marginTop: 14, background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.3)', borderRadius: 8, padding: '10px 14px', fontSize: 12, color: '#a78bfa', textAlign: 'left' }}>
                     ⚠️ ការផ្ទៀងផ្ទាត់ការបង់ប្រាក់កំពុងចាប់ពេលយូរជាងធម្មតា។ ប្រសិនបើអ្នកបានបង់ប្រាក់រួច សូមរង់ចាំបន្តិច ឬទាក់ទងផ្នែកជំនួយ។
                   </div>
                 )}
@@ -516,7 +516,7 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
             {bkStage === 'refreshing' && (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div style={{ fontSize: 40, marginBottom: 8 }}>⌛</div>
-                <div style={{ fontWeight: 700, fontSize: 16, color: '#f59e0b' }}>
+                <div style={{ fontWeight: 700, fontSize: 16, color: '#a78bfa' }}>
                   {bkNotice === 'retry_error' ? 'មានបញ្ហាបណ្តោះអាសន្នក្នុងការបង្កើត QR' : 'QR បានផុតកំណត់ពេល — មិនទាន់បង់ប្រាក់'}
                 </div>
                 <div style={{ fontSize: 13, color: XCLOUD_THEME.textMuted, marginTop: 4 }}>
@@ -557,7 +557,7 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
               <div style={{ fontWeight: 700, fontSize: 16, color: XCLOUD_THEME.textMain, marginBottom: 4 }}>{currentGateway.accountName}</div>
               <div style={{ fontSize: 12, color: XCLOUD_THEME.textMuted }}>{currentGateway.accountNumber}</div>
               {currentGateway.paywayUrl && (
-                <a href={currentGateway.paywayUrl} target="_blank" rel="noreferrer" className="xc-btn" style={{ display: 'inline-block', marginTop: 12, padding: '10px 24px', background: '#d97706', color: '#fff', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none' }}>
+                <a href={currentGateway.paywayUrl} target="_blank" rel="noreferrer" className="xc-btn" style={{ display: 'inline-block', marginTop: 12, padding: '10px 24px', background: '#7c5cff', color: '#fff', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none' }}>
                   {t('topup.openPayway')}
                 </a>
               )}
@@ -580,8 +580,8 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
                 </div>
                 {isSubmitting && uploadProgress > 0 && (
                   <div style={{ marginTop: '8px' }}>
-                    <div style={{ background: '#2a2420', borderRadius: '4px', overflow: 'hidden', height: '6px' }}>
-                      <div style={{ width: `${uploadProgress}%`, height: '100%', background: '#d97706', transition: 'width 0.2s' }} />
+                    <div style={{ background: '#241f3a', borderRadius: '4px', overflow: 'hidden', height: '6px' }}>
+                      <div style={{ width: `${uploadProgress}%`, height: '100%', background: '#7c5cff', transition: 'width 0.2s' }} />
                     </div>
                     <div style={{ fontSize: '11px', color: XCLOUD_THEME.textMuted, marginTop: '4px' }}>
                       {uploadProgress < 100 ? `${t('topup.uploading')} ${uploadProgress}%` : t('topup.done')}
@@ -614,7 +614,7 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
         <div onClick={resetBakongFlow} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 1000, backdropFilter: 'blur(2px)' }} />
         <div style={{
           position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-          zIndex: 1001, background: '#14110f', border: '1px solid rgba(16,185,129,0.4)',
+          zIndex: 1001, background: '#100d1c', border: '1px solid rgba(16,185,129,0.4)',
           borderRadius: 16, padding: '32px 28px', width: '90%', maxWidth: 360,
           textAlign: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
         }}>
@@ -639,7 +639,7 @@ export default function Topup({ userEmail, pendingDeposits, setPendingDeposits, 
         <div onClick={resetBakongFlow} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 1000, backdropFilter: 'blur(2px)' }} />
         <div style={{
           position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-          zIndex: 1001, background: '#14110f', border: '1px solid rgba(239,68,68,0.4)',
+          zIndex: 1001, background: '#100d1c', border: '1px solid rgba(239,68,68,0.4)',
           borderRadius: 16, padding: '32px 28px', width: '90%', maxWidth: 360,
           textAlign: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
         }}>
